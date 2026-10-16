@@ -3,66 +3,396 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>V-Music Player Privacy Policy</title>
+  <meta name="theme-color" content="#090b18">
+  <meta name="description" content="Read the V-Music Player privacy policy. Learn how your music files and personal information are handled.">
+  <title>Privacy Policy | V-Music Player</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: #e2e8f0;
-      max-width: 900px;
-      margin: auto;
-      padding: 24px;
-      line-height: 1.7;
+    :root {
+      color-scheme: dark;
+      --bg: #090b18;
+      --surface: rgba(20, 24, 46, .76);
+      --surface-strong: #14182d;
+      --border: rgba(177, 157, 255, .17);
+      --text: #f5f4ff;
+      --muted: #a7aec9;
+      --purple: #b49aff;
+      --blue: #78aaff;
+      --green: #8ee7c0;
+      --radius: 22px;
+      --max-width: 1120px;
     }
-    h1, h2 { color: #ffffff; }
-    a { color: #60a5fa; }
-    .card {
-      background: #111827;
-      border: 1px solid #334155;
-      border-radius: 12px;
-      padding: 24px;
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 12% 0%, rgba(113, 70, 214, .20), transparent 34rem),
+        radial-gradient(ellipse at 95% 25%, rgba(52, 111, 222, .13), transparent 32rem),
+        var(--bg);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    a { color: var(--purple); text-decoration: none; }
+    a:hover { color: #d6c8ff; }
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: 4px;
+      border-radius: 8px;
+    }
+    .container { width: min(var(--max-width), calc(100% - 40px)); margin: 0 auto; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(9, 11, 24, .78);
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand { display: inline-flex; align-items: center; gap: 12px; color: var(--text); font-weight: 750; letter-spacing: -.03em; }
+    .brand-mark {
+      width: 44px; height: 44px; display: grid; place-items: center; border-radius: 14px;
+      background: linear-gradient(140deg, #6d4ad2, #3159bc);
+      box-shadow: 0 8px 28px rgba(115, 80, 222, .28);
+    }
+    .brand-mark { overflow: hidden; padding: 0; background: transparent; box-shadow: 0 8px 28px rgba(115, 80, 222, .28); }
+    .brand-icon { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
+    .brand-mark svg { width: 25px; height: 25px; }
+    .brand-name { font-size: 1.05rem; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 22px; align-items: center; }
+    .nav-links a { color: var(--muted); font-size: .88rem; transition: color .2s ease; }
+    .nav-links a:hover { color: white; }
+    .nav-links a.active {
+      color: #f3edff; background: rgba(161,129,255,.14);
+      border: 1px solid rgba(180,154,255,.28); box-shadow: 0 0 18px rgba(126,91,220,.10);
+    }
+    .nav-links a { padding: 8px 11px; border: 1px solid transparent; border-radius: 10px; }
+    .play-store-link {
+      display: inline-flex; align-items: center; gap: 9px; padding: 9px 13px !important;
+      color: #fff !important; border: 1px solid rgba(142,231,192,.28) !important;
+      background: linear-gradient(110deg, rgba(46,164,112,.18), rgba(72,121,220,.18));
+      border-radius: 12px !important; font-weight: 700; white-space: nowrap;
+    }
+    .play-store-link:hover { border-color: rgba(142,231,192,.65) !important; background: rgba(46,164,112,.22); }
+    .play-store-link svg { width: 19px; height: 19px; flex-shrink: 0; }
+
+    .hero { padding: 72px 0 52px; text-align: center; position: relative; overflow: hidden; }
+    .hero-app-icon { display: flex; justify-content: center; margin: 0 auto 24px; }
+    .hero-app-icon img { width: 112px; height: 112px; object-fit: cover; border-radius: 26px; border: 1px solid rgba(255,255,255,.15); box-shadow: 0 16px 48px rgba(119, 66, 222, .32); }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px; padding: 7px 13px;
+      border: 1px solid var(--border); border-radius: 999px; color: #d4c8ff;
+      background: rgba(133, 100, 224, .09); font-size: .78rem; font-weight: 700;
+      letter-spacing: .09em; text-transform: uppercase;
+    }
+    .status-dot { width: 7px; height: 7px; background: var(--green); border-radius: 50%; box-shadow: 0 0 12px rgba(142,231,192,.8); }
+    h1 {
+      margin: 23px auto 18px; max-width: 850px; font-size: clamp(2.65rem, 7vw, 5.3rem);
+      line-height: 1.04; letter-spacing: -.065em; font-weight: 820;
+    }
+    .gradient-text {
+      background: linear-gradient(100deg, #c3a9ff 10%, #8faeff 58%, #8de1e0 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .hero-copy { max-width: 650px; margin: 0 auto; color: var(--muted); font-size: clamp(1rem, 2vw, 1.12rem); }
+    .effective-date {
+      margin-top: 25px; display: inline-flex; align-items: center; gap: 9px;
+      color: #d5d8eb; font-size: .9rem;
+    }
+    .effective-date svg { width: 17px; height: 17px; color: var(--purple); }
+    .hero-actions { margin-top: 22px; display: flex; justify-content: center; }
+    .play-store-button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 17px; border: 1px solid rgba(180,154,255,.35); border-radius: 14px; color: #fff; font-weight: 700; background: linear-gradient(110deg, rgba(112,75,207,.25), rgba(56,101,193,.20)); box-shadow: 0 10px 30px rgba(0,0,0,.14); transition: transform .2s ease, border-color .2s ease, background .2s ease; }
+    .play-store-button:hover { color: #fff; transform: translateY(-2px); border-color: rgba(180,154,255,.7); background: linear-gradient(110deg, rgba(112,75,207,.4), rgba(56,101,193,.32)); }
+    .play-store-button svg { width: 22px; height: 22px; flex: 0 0 auto; }
+
+    .summary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 22px auto 66px; }
+    .summary-card, .policy-card, .contact-card {
+      border: 1px solid var(--border);
+      background: linear-gradient(145deg, rgba(25, 29, 54, .86), rgba(15, 18, 36, .82));
+      border-radius: var(--radius);
+      box-shadow: 0 18px 55px rgba(0,0,0,.12);
+    }
+    .summary-card { padding: 24px; min-height: 164px; transition: transform .25s ease, border-color .25s ease; }
+    .summary-card:hover { transform: translateY(-4px); border-color: rgba(180,154,255,.42); }
+    .icon-box {
+      width: 43px; height: 43px; border-radius: 14px; display: grid; place-items: center;
+      color: var(--purple); background: rgba(161, 129, 255, .12); margin-bottom: 15px;
+    }
+    .icon-box svg { width: 22px; height: 22px; }
+    .summary-card h2 { margin: 0 0 4px; font-size: 1.02rem; letter-spacing: -.02em; }
+    .summary-card p { margin: 0; color: var(--muted); font-size: .9rem; }
+
+    .content-layout { display: grid; grid-template-columns: 235px minmax(0, 1fr); gap: 28px; align-items: start; padding-bottom: 80px; }
+    .side-nav {
+      position: sticky; top: 100px; padding: 20px 14px; border: 1px solid var(--border);
+      background: rgba(17, 20, 39, .72); border-radius: 18px;
+    }
+    .side-nav-label { margin: 0 10px 12px; color: #777f9f; font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .side-nav a { display: block; padding: 10px 11px; border-radius: 10px; color: var(--muted); font-size: .9rem; transition: background .2s ease, color .2s ease; }
+    .side-nav a:hover, .side-nav a.active { background: rgba(161,129,255,.12); color: #e4dcff; }
+    .policy-list { display: grid; gap: 15px; min-width: 0; }
+    .policy-card { padding: clamp(23px, 4vw, 34px); scroll-margin-top: 100px; }
+    .section-heading { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 14px; }
+    .section-heading .icon-box { flex: 0 0 43px; margin: 0; }
+    .section-number { display: block; color: #8f82bd; font-size: .72rem; font-weight: 800; letter-spacing: .13em; margin-bottom: 2px; }
+    .policy-card h2 { margin: 0; font-size: clamp(1.2rem, 2.5vw, 1.45rem); letter-spacing: -.035em; line-height: 1.35; }
+    .policy-card p { margin: 12px 0 0; color: #b5bbd3; }
+    .policy-card p:first-of-type { margin-top: 0; }
+    .policy-card strong { color: #f0edff; font-weight: 650; }
+    .inline-note { margin-top: 18px; padding: 14px 16px; border-left: 3px solid var(--purple); border-radius: 0 12px 12px 0; background: rgba(161,129,255,.07); color: #d1cbe8; font-size: .93rem; }
+    .contact-card { padding: clamp(24px, 4vw, 36px); display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+    .contact-card h2 { margin: 0 0 5px; font-size: 1.45rem; letter-spacing: -.04em; }
+    .contact-card p { margin: 0; color: var(--muted); }
+    .email-link { display: inline-flex; align-items: center; gap: 9px; padding: 12px 16px; border: 1px solid rgba(180,154,255,.3); border-radius: 13px; background: rgba(161,129,255,.1); font-weight: 650; overflow-wrap: anywhere; }
+    .email-link svg { width: 18px; height: 18px; flex-shrink: 0; }
+    footer { border-top: 1px solid rgba(255,255,255,.07); padding: 28px 0 35px; color: #8189a8; font-size: .85rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+    .footer-inner p { margin: 0; }
+
+    @media (max-width: 820px) {
+      .nav { padding: 13px 0; align-items: flex-start; flex-direction: column; gap: 12px; }
+      .nav-links { gap: 8px 17px; }
+      .hero { padding-top: 65px; }
+      .content-layout { grid-template-columns: 1fr; gap: 18px; }
+      .side-nav { position: static; display: flex; flex-wrap: wrap; gap: 5px; align-items: center; padding: 12px; }
+      .side-nav-label { width: 100%; margin: 0 8px 4px; }
+      .side-nav a { padding: 7px 9px; font-size: .82rem; }
+    }
+    @media (max-width: 600px) {
+      .container { width: min(100% - 28px, var(--max-width)); }
+      .summary-grid { grid-template-columns: 1fr; gap: 11px; margin-bottom: 42px; }
+      .summary-card { min-height: auto; padding: 19px; display: grid; grid-template-columns: 43px 1fr; column-gap: 14px; align-items: center; }
+      .summary-card .icon-box { grid-row: span 2; margin: 0; }
+      .summary-card h2 { align-self: end; }
+      .summary-card p { align-self: start; }
+      .hero { padding-top: 48px; }
+      .hero-copy { font-size: .98rem; }
+      .policy-card { border-radius: 17px; }
+      .contact-card { align-items: flex-start; }
+      .email-link { font-size: .88rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Privacy Policy – V-Music Player</h1>
-    <p><strong>Effective Date:</strong> 5 August 2026</p>
+  <!-- Inline SVG icons keep the page lightweight and dependency-free. -->
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="V-Music Player home">
+        <span class="brand-mark" aria-hidden="true"><img class="brand-icon" src="assets/vmusic-app-icon.png" alt=""></span>
+        <span class="brand-name">V-Music Player</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#overview">Overview</a>
+        <a href="#music-access">Music access</a>
+        <a href="#data-sharing">Data sharing</a>
+        <a href="#security">Security</a>
+        <a href="#contact">Contact</a>
+        <a class="play-store-link" href="https://play.google.com/store/apps/details?id=com.vishvesh.music" target="_blank" rel="noopener noreferrer" aria-label="Get V-Music Player on Google Play">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#34A853" d="M3.4 2.7c-.3.4-.4.8-.4 1.5v15.6c0 .6.1 1.1.4 1.5l8.4-9.3z"/><path fill="#4285F4" d="m3.4 21.3 11-9.3-3-2.7z"/><path fill="#FBBC04" d="m14.4 12 4-3.4-4.6-2.7-2.4 3.4z"/><path fill="#EA4335" d="m3.4 2.7 8.4 9.3 2.6-2.7z"/><path fill="#EA4335" d="m14.4 12 4.8 2.8c1.1-.6 1.1-1.7 0-2.3l-.8-.5-4-2.4z"/></svg>
+          Google Play
+        </a>
+      </nav>
+    </div>
+  </header>
 
-    <p>V-Music Player ("the App") is developed by <strong>Vishvesh Lad</strong>. This Privacy Policy explains how the App handles user information.</p>
+  <main id="top">
+    <section class="hero container" aria-labelledby="hero-title">
+      <div class="hero-app-icon">
+        <img src="assets/vmusic-app-icon.png" alt="V-Music Player app icon" width="112" height="112">
+      </div>
+      <div class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Privacy-first listening</div>
+      <h1 id="hero-title">Your Music.<br><span class="gradient-text">Your Device. Your Privacy.</span></h1>
+      <p class="hero-copy">Enjoy your personal music library with a player designed to keep playback on your device and your privacy in focus.</p>
+      <div class="effective-date">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M16 3v4M8 3v4M3 10h18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        Effective date: <time datetime="2026-08-05">5 August 2026</time>
+      </div>
+      <div class="hero-actions">
+        <a class="play-store-button" href="https://play.google.com/store/apps/details?id=com.vishvesh.music" target="_blank" rel="noopener noreferrer" aria-label="Get V-Music Player on Google Play">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#34A853" d="M3.4 2.6 14 12 3.4 21.4c-.3-.3-.4-.7-.4-1.2V3.8c0-.5.1-.9.4-1.2Z"/><path fill="#4285F4" d="m3.4 2.6 12.2 6.8L14 12 3.4 2.6Z"/><path fill="#FBBC04" d="m15.6 9.4 4.7 2.6c.8.4.8 1.6 0 2l-4.7 2.6L14 12l1.6-2.6Z"/><path fill="#EA4335" d="M3.4 21.4 14 12l1.6 4.6-12.2 4.8Z"/></svg>
+          Get it on Google Play
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
 
-    <h2>Information We Collect</h2>
-    <p>V-Music Player is designed to work completely offline and does not collect, store, or share any personal information such as name, email address, phone number, location, contacts, photos, videos, messages, or payment information.</p>
+    <section class="container summary-grid" aria-label="Privacy highlights">
+      <article class="summary-card">
+        <div class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="6" y="2.5" width="12" height="19" rx="2.5" stroke="currentColor" stroke-width="1.8"/><path d="M10 18.5h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <h2>On-device playback</h2><p>Your local music library is processed on your device.</p>
+      </article>
+      <article class="summary-card">
+        <div class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h2>No tracking</h2><p>No analytics or tracking tools are used by the app.</p>
+      </article>
+      <article class="summary-card">
+        <div class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M5.6 5.6 18.4 18.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <h2>No advertisements</h2><p>Enjoy music without in-app advertising.</p>
+      </article>
+    </section>
 
-    <h2>Music Files Access</h2>
-    <p>The App may request permission to access audio files stored on your device in order to display your music library, play songs, create playlists, and mark songs as favorites. These files are processed only on your device and are never uploaded to any server.</p>
+    <div class="container content-layout">
+      <aside class="side-nav" aria-label="Privacy policy sections">
+        <p class="side-nav-label">On this page</p>
+        <a href="#overview">01 &nbsp; Overview</a>
+        <a href="#music-access">02 &nbsp; Music access & sharing</a>
+        <a href="#internet">03 &nbsp; Internet usage</a>
+        <a href="#advertisements">04 &nbsp; Advertisements</a>
+        <a href="#analytics">05 &nbsp; Analytics & tracking</a>
+        <a href="#data-sharing">06 &nbsp; Data sharing</a>
+        <a href="#security">07 &nbsp; Security</a>
+        <a href="#children">08 &nbsp; Children's privacy</a>
+        <a href="#changes">09 &nbsp; Policy changes</a>
+        <a href="#contact">10 &nbsp; Contact</a>
+      </aside>
 
-    <h2>Internet Usage</h2>
-    <p>V-Music Player does not require an internet connection for normal functionality. The App does not send your music files or usage data to the developer or any third party.</p>
+      <div class="policy-list">
+        <section class="policy-card" id="overview">
+          <div class="section-heading">
+            <div class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 20 7v5c0 5-3.4 8-8 9-4.6-1-8-4-8-9V7l8-4Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div><span class="section-number">SECTION 01</span><h2>Information We Collect</h2></div>
+          </div>
+          <p>V-Music Player (“the App”), developed by <strong>Vishvesh Lad</strong>, is designed to work completely offline and does not collect, store, or share personal information.</p>
+        </section>
 
-    <h2>Advertisements</h2>
-    <p>V-Music Player does not display advertisements.</p>
+        <section class="policy-card" id="music-access">
+          <div class="section-heading">
+            <div class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M9 18V5l11-2v13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6" cy="18" r="3" stroke="currentColor" stroke-width="1.8"/><circle cx="17" cy="16" r="3" stroke="currentColor" stroke-width="1.8"/></svg></div>
+            <div><span class="section-number">SECTION 02</span><h2>Music Files Access & Sharing</h2></div>
+          </div>
+          <p>The App requests permission to access audio files stored on your device so it can display your music library, play songs, create playlists, and mark songs as favorites. These files are processed locally on your device.</p>
+          <p>If you choose to use the App’s <strong>Share</strong> feature, the App passes the selected local media file to the Android System Share Sheet. The App itself does not upload, copy, or transmit your media to developer servers.</p>
+          <p>Data may be transferred to third-party apps, such as messaging apps or email clients, that <strong>you explicitly select</strong> from the Android Share menu. Those apps handle shared content according to their own privacy practices.</p>
+          <div class="inline-note">You decide whether to share a music file and which app receives it.</div>
+        </section>
 
-    <h2>Analytics and Tracking</h2>
-    <p>The App does not use analytics, tracking tools, or third-party advertising SDKs.</p>
+        <section class="policy-card" id="internet">
+          <div class="section-heading">
+            <div class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18" stroke="currentColor" stroke-width="1.5"/></svg></div>
+            <div><span class="section-number">SECTION 03</span><h2>Internet Usage</h2></div>
+          </div>
+          <p>The App does not require an internet connection for normal functionality and does not send your music files or usage data to third parties.</p>
+        </section>
 
-    <h2>Data Sharing</h2>
-    <p>No user data is sold, shared, rented, or transferred to third parties.</p>
+        <section class="policy-card" id="advertisements">
+          <div class="section-heading">
+            <div class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="m5.6 5.6 12.8 12.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+            <div><span class="section-number">SECTION 04</span><h2>Advertisements</h2></div>
+          </div>
+          <p>V-Music Player does not display advertisements.</p>
+        </section>
 
-    <h2>Security</h2>
-    <p>All music playback and related processing occur locally on your device. No cloud storage or remote servers are used by the App.</p>
+        <section class="policy-card" id="analytics">
+          <div class="section-heading">
+            <div class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 19V5M4 19h17M8 15l4-5 3 2 5-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div><span class="section-number">SECTION 05</span><h2>Analytics and Tracking</h2></div>
+          </div>
+          <p>The App does not use analytics, tracking tools, or third-party advertising SDKs.</p>
+        </section>
 
-    <h2>Children’s Privacy</h2>
-    <p>V-Music Player is suitable for general audiences and does not knowingly collect personal information from children.</p>
+        <section class="policy-card" id="data-sharing">
+          <div class="section-heading">
+            <div class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="18" cy="5" r="3" stroke="currentColor" stroke-width="1.8"/><circle cx="6" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><circle cx="18" cy="19" r="3" stroke="currentColor" stroke-width="1.8"/><path d="m8.7 10.6 6.6-4.2M8.7 13.4l6.6 4.2" stroke="currentColor" stroke-width="1.8"/></svg></div>
+            <div><span class="section-number">SECTION 06</span><h2>Data Sharing</h2></div>
+          </div>
+          <p>No user data is sold, shared, rented, or transferred to third parties by the App. This does not include a file you deliberately share with another app using Android’s Share Sheet.</p>
+        </section>
 
-    <h2>Changes to This Privacy Policy</h2>
-    <p>This Privacy Policy may be updated in the future. Any changes will be reflected by updating the Effective Date above.</p>
+        <section class="policy-card" id="security">
+          <div class="section-heading">
+            <div class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="5" y="10" width="14" height="11" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+            <div><span class="section-number">SECTION 07</span><h2>Security</h2></div>
+          </div>
+          <p>Music playback and related processing occur locally on your device. The App does not use cloud storage or remote servers for these functions.</p>
+        </section>
 
-    <h2>Contact</h2>
-    <p>
-      <strong>Vishvesh Lad</strong><br>
-      Email: <a href="mailto:iosdeveloper.vishveshlad@gmail.com">iosdeveloper.vishveshlad@gmail.com</a>
-    </p>
-  </div>
+        <section class="policy-card" id="children">
+          <div class="section-heading">
+            <div class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M4 21a8 8 0 0 1 16 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+            <div><span class="section-number">SECTION 08</span><h2>Children’s Privacy</h2></div>
+          </div>
+          <p>V-Music Player is intended for general audiences and does not knowingly collect personal information from children.</p>
+        </section>
+
+        <section class="policy-card" id="changes">
+          <div class="section-heading">
+            <div class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7v5h-5M4 17v-5h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 9A7 7 0 0 1 17 5l3 7M4 12l3 7a7 7 0 0 0 11.5-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div><span class="section-number">SECTION 09</span><h2>Changes to This Privacy Policy</h2></div>
+          </div>
+          <p>This Privacy Policy may be updated in the future. Any changes will be reflected by updating the effective date at the top of this page.</p>
+        </section>
+
+        <section class="contact-card" id="contact">
+          <div>
+            <span class="section-number">SECTION 10</span>
+            <h2>Questions about privacy?</h2>
+            <p>Contact the developer if you have questions about this policy.</p>
+            <p style="margin-top:8px">Developer: <strong>Vishvesh Lad</strong></p>
+          </div>
+          <a class="email-link" href="mailto:iosdeveloper.vishveshlad@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Email the developer
+          </a>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <p>© <span id="year">2026</span> V-Music Player · Developed by Vishvesh Lad</p>
+      <p>Made for music. Designed with privacy in mind.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Keep the footer year current.
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Keep top navigation and the section menu in sync on click and while scrolling.
+    const allSectionLinks = document.querySelectorAll('.nav-links a[href^="#"], .side-nav a[href^="#"]');
+    const policySections = document.querySelectorAll('.policy-card[id], .contact-card[id]');
+
+    function setActiveSection(sectionId) {
+      allSectionLinks.forEach((link) => {
+        const isActive = link.getAttribute('href') === '#' + sectionId;
+        link.classList.toggle('active', isActive);
+        if (isActive) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    }
+
+    allSectionLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        const sectionId = link.getAttribute('href').slice(1);
+        setActiveSection(sectionId);
+      });
+    });
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        const visibleEntries = entries.filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visibleEntries.length) setActiveSection(visibleEntries[0].target.id);
+      }, { rootMargin: '-20% 0px -65% 0px', threshold: [0, 0.1, 0.25, 0.5] });
+      policySections.forEach((section) => observer.observe(section));
+    }
+  </script>
 </body>
 </html>
